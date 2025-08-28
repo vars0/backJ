@@ -1,0 +1,69 @@
+body {
+  font-family: sans-serif;
+  background: #111;
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+#game-container {
+  display: flex;
+  gap: 20px;
+}
+
+#board {
+  background: #222;
+  border: 2px solid #555;
+}
+
+#side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#next-container, #hold {
+  background: #333;
+  padding: 8px;
+  border: 1px solid #555;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+button {
+  padding: 8px;
+  background: #444;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+button:hover {
+  background: #666;
+}
+
+/* 모달 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+}
+.modal-content {
+  background: #222;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  color: #fff;
+}
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
