@@ -32,20 +32,17 @@ int main(int argc, char **argv)
       row.push_back(a - 1);
       row.push_back(b - 1);
       rule.push_back(row);
-      // std::cin >> rules[j][0] >> rules[j][1];
-      // rules[j][0]--;
-      // rules[j][1]--;
-      // vec[i][j]
     }
     std::cin >> target;
     target--;
 
+    // 첫건물 짓기
     for (int j = 0; j < N; j++)
     {
       bool canBuild = true;
       for (int k = 0; k < K; k++)
       {
-        if (rules[k][1] == j)
+        if (rule[k][1] == j)
         {
           canBuild = false;
           break;
@@ -57,6 +54,7 @@ int main(int argc, char **argv)
       }
     }
 
+    //이후 건물 짓기
     while (time[target] == -1)
     {
       for (int j = 0; j < N; j++)
@@ -67,9 +65,9 @@ int main(int argc, char **argv)
         bool canBuild = true;
         for (int k = 0; k < K; k++)
         {
-          if (rules[k][1] == j)
+          if (rule[k][1] == j)
           {
-            if (time[rules[k][0]] == -1)
+            if (time[rule[k][0]] == -1)
             {
               canBuild = false;
               break;
@@ -80,13 +78,16 @@ int main(int argc, char **argv)
         {
           for (int k = 0; k < K; k++)
           {
-            if (rules[k][1] == j)
+            if (rule[k][1] == j)
             {
-              int M = time[rules[k][0]] + D[j];
+              int M = time[rule[k][0]] + D[j];
               if (time[j] < M)
               {
                 time[j] = M;
               }
+              rule.erase(rule.begin() + k);
+              k--;
+              K--;
             }
           }
         }
