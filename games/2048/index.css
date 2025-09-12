@@ -1,125 +1,95 @@
 body {
-  background-color: #fff;
+  background: #fff;
   overflow: hidden;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
-
-/* head */
 .head {
-  height: 120px;
   width: 510px;
-  margin-left: auto;
-  margin-right: auto;
-  float: center;
+  height: 120px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 div.game {
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
-
 div.description {
-  height: 250px;
-  width: 300px;
-  top: 1000px;
-  color: #333;
-  font-family: nunito;
-  transform: translate(-50%, -50%) scale(0);
   position: absolute;
-  left: 50%;
   top: 425px;
-  background: #fff;
+  left: 50%;
+  width: 300px;
+  height: 250px;
   padding: 50px;
-  border-radius: 0px;
-  z-index: 1000;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  color: #333;
   text-align: center;
+  font-size: 15px;
+  border-radius: 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%) scale(0);
   visibility: hidden;
   opacity: 0;
-  font-size: 15px;
   transition: 0.3s all;
+  z-index: 1000;
 }
-
 .description.show {
   visibility: visible;
   opacity: 1;
-  font-size: 15px;
   transform: translate(-50%, -50%) scale(1);
-  transition: 0.3s all;
 }
-
 .info {
   width: 40px;
   height: 40px;
+  margin-left: 25px;
+  border: none;
   border-radius: 50%;
-  font-weight: 100;
-  cursor: pointer;
-  border: 0px;
-  border-color: #aaa;
-  background-color: #88b1ef;
+  background: #88b1ef;
   color: #fff;
   font-size: 20px;
-  top: 50px;
+  font-weight: 100;
+  cursor: pointer;
   transform: translate(-50%, -50%);
-  margin-left: 25px;
   transition: 0.1s background-color;
 }
-
 .info:hover {
-  background-color: #6593d8;
+  background: #6593d8;
 }
-
 .repeat {
-  margin: 0px !important;
+  margin: 0 !important;
 }
-
 .a {
-  font-family: Nunito;
   font-size: 100px;
   font-weight: 200;
   margin-right: 15px;
 }
-
 .score {
   position: relative;
   width: 100px;
   height: 100px;
   top: 10px;
-  font-family: nunito;
-  font-weight: 400;
   font-size: 30px;
+  font-weight: 400;
   color: grey;
   text-align: center;
 }
-
-/* field */
 .field,
 .grid {
   position: absolute;
-  width: 510px;
-  height: 510px;
-  background-color: #888;
   top: 150px;
-  border-radius: 0px;
-  border: 5px solid #888;
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
   left: 0;
   right: 0;
+  width: 510px;
+  height: 510px;
+  margin: 0 auto;
+  background: #888;
+  border: 5px solid #888;
+  border-radius: 0;
+  display: table;
 }
-
-.field {
-  z-index: 50;
-}
-
-.grid {
-  z-index: 100;
-}
-
+.field { z-index: 50; }
+.grid { z-index: 100; }
 .row,
 .grid_row {
   width: 510px;
@@ -127,74 +97,48 @@ div.description {
   position: relative;
   display: table-row;
 }
-
 .cell,
 .grid_cell {
-  background-color: white;
+  position: relative;
   width: 125px;
   height: 125px;
-  position: relative;
-  display: table-cell;
-  border-radius: 0px;
   border: 5px solid #888;
+  border-radius: 0;
   text-align: center;
   vertical-align: middle;
-  font-family: nunito;
   font-size: 50px;
+  display: table-cell;
 }
-
+.cell { background: #fff; }
 .grid_cell {
-  background-color: #aaa;
-  color: white;
+  background: #aaa;
+  color: #fff;
 }
-
 div > div > div > div {
-  opacity: 0;
   position: absolute;
+  opacity: 0;
 }
-
 .tile {
   opacity: 1;
-  width: 118px;
-  height: 126px;
-  background-color: white;
-  z-index: 150;
-  border-radius: 0px;
-  font-weight: 200;
+  position: absolute;
   top: 0;
   left: -1px;
-  color: black;
-  transition: 0.3s all;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
+  width: 118px;
+  height: 126px;
+  background: #fff;
+  color: #000;
+  font-weight: 200;
   display: flex;
-
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  justify-content: center;
-
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
   align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  opacity: 1;
+  z-index: 150;
+  transition: 0.3s all;
 }
-
 #status {
   width: 100%;
   height: 100vh;
 }
-
-.won {
-  background-color: #337538;
-  transition: 0.3s all;
-}
-
-.lose {
-  background-color: #7d3c34;
-}
+.won { background: #337538; transition: 0.3s all; }
+.lose { background: #7d3c34; }
